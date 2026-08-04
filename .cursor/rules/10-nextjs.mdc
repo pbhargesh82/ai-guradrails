@@ -1,0 +1,14 @@
+---
+description: Next.js and TypeScript conventions
+globs: ["src/**/*.ts", "src/**/*.tsx"]
+alwaysApply: false
+---
+
+# Next.js / TypeScript
+
+- Static export only — no API routes, no server runtime features
+- Server components by default; `"use client"` only when required
+- Read markdown from `content/` at build time via `fs` in server components
+- Do not import `fs`-using modules in client components
+- Run `npm run lint` and `npm run build` before claiming done
+- Match existing file structure: pages in `src/app/`, shared code in `src/lib/` and `src/components/`

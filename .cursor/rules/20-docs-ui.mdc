@@ -1,0 +1,30 @@
+---
+description: Docs site UI rules — not landing page, not unstyled HTML
+globs: ["src/**/*.tsx", "src/**/*.css"]
+alwaysApply: false
+---
+
+# Docs site UI
+
+## Target
+
+Clean documentation site (MDN-style). Readable typography, spacing, sidebar nav.
+
+## Do
+
+- CSS classes in `globals.css` — `.layout`, `.sidebar`, `.page`, `.prose`
+- Wrap all page content in `.page` or `.prose`
+- Server-rendered sidebar with section labels
+- Subtle borders and spacing; muted text for secondary content
+
+## Do not
+
+- Card grids, hero sections, numbered badge circles
+- Marketing CTAs ("Start reading", accent-color spans)
+- Inline `style={}` in components
+- `"use client"` for nav unless a tiny NavLink is truly needed
+- Backdrop-blur, hover animation libraries, accent marketing colors
+
+## Overcorrection warning
+
+De-bloat ≠ remove all CSS. Unstyled HTML is as wrong as a SaaS landing page.

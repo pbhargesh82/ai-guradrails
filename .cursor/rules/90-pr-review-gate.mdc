@@ -1,0 +1,14 @@
+---
+description: Pre-PR checklist — invoke manually before opening PRs
+alwaysApply: false
+---
+
+# Pre-PR checklist
+
+- [ ] Every changed line maps to the stated task
+- [ ] No new abstractions without 2+ concrete use cases today
+- [ ] No unrequested features
+- [ ] `npm run lint` and `npm run build` pass locally
+- [ ] UI changes use CSS classes, not inline styles
+- [ ] Page content wrapped in `.page` or `.prose`
+- [ ] AGENTS.md Project Learnings updated if repeatable mistake

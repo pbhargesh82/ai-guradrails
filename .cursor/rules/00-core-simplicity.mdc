@@ -1,0 +1,28 @@
+---
+description: Core simplicity rules for all work
+alwaysApply: true
+---
+
+# Simplicity rules
+
+## Karpathy 4
+
+1. Think before coding — state assumptions, ask when ambiguous
+2. Simplicity first — minimum code, nothing speculative
+3. Surgical changes — touch only what the request requires
+4. Goal-driven — run lint/build before claiming done
+
+## Banned in code/comments
+
+robust, comprehensive, leverage, utilize, ensure seamless, orchestrate, harness
+
+## Banned patterns
+
+- ABC/base class/factory with only 1 implementation
+- helpers/utils with unrelated functions grouped together
+- Features not in the request
+- Inline `style={}` in React — use CSS classes
+
+## Naming
+
+Use plain names: `getGuide` not `GuideRetrievalOrchestrationService`
