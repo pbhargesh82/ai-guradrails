@@ -1,42 +1,66 @@
 import Link from "next/link";
-import { Sidebar } from "./Sidebar";
 import { siteConfig } from "@/lib/site-config";
-import type { TocItem } from "@/lib/content";
 
 interface LayoutProps {
   children: React.ReactNode;
-  toc?: TocItem[];
 }
 
-export function Layout({ children, toc }: LayoutProps) {
+const navLinks = [
+  { href: "/playbook", label: "Playbook" },
+  { href: "/manual/01-the-problem", label: "Manual" },
+  { href: "/guides/cursor", label: "Guides" },
+  { href: "/roadmap", label: "Roadmap" },
+  { href: siteConfig.github, label: "GitHub", external: true },
+];
+
+export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen">
-      <Sidebar toc={toc} />
-      <div className="lg:pl-64">
-        <header className="sticky top-0 z-30 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
-          <div className="flex items-center justify-between px-6 py-3 lg:px-8">
-            <div className="lg:hidden ml-10" />
-            <div className="hidden lg:block" />
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-            >
-              GitHub
-            </a>
-          </div>
-        </header>
-        <main className="px-6 py-8 lg:px-8 max-w-4xl">{children}</main>
-        <footer className="px-6 py-8 lg:px-8 border-t border-[var(--color-border)] text-sm text-[var(--color-text-muted)]">
-          <p>
-            MIT License ·{" "}
-            <Link href="/playbook" className="text-[var(--color-accent)] hover:underline">
-              Playbook v1.0.0
-            </Link>
-          </p>
-        </footer>
-      </div>
-    </div>
+    <>
+      <header
+        style={{
+          borderBottom: "1px solid #333",
+          padding: "0.75rem 1rem",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0.5rem 1.5rem",
+          alignItems: "baseline",
+          maxWidth: "42rem",
+          margin: "0 auto",
+        }}
+      >
+        <Link href="/" style={{ fontWeight: 600, textDecoration: "none" }}>
+          {siteConfig.name}
+        </Link>
+        <nav style={{ display: "flex", flexWrap: "wrap", gap: "1rem", fontSize: "0.875rem" }}>
+          {navLinks.map((link) =>
+            link.external ? (
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            )
+          )}
+        </nav>
+      </header>
+      <main>{children}</main>
+      <footer
+        style={{
+          borderTop: "1px solid #333",
+          padding: "1rem",
+          fontSize: "0.875rem",
+          color: "#888",
+          maxWidth: "42rem",
+          margin: "0 auto",
+        }}
+      >
+        MIT ·{" "}
+        <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </footer>
+    </>
   );
 }

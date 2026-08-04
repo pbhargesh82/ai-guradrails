@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { MdxRenderer } from "@/components/MdxRenderer";
-import { getAllManualSections, getManualSection, extractToc } from "@/lib/content";
+import { getAllManualSections, getManualSection } from "@/lib/content";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -28,10 +28,8 @@ export default async function ManualPage({ params }: PageProps) {
   const item = getManualSection(section);
   if (!item) notFound();
 
-  const toc = extractToc(item.content);
-
   return (
-    <Layout toc={toc}>
+    <Layout>
       <MdxRenderer source={item.content} />
     </Layout>
   );

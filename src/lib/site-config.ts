@@ -1,5 +1,5 @@
 export const siteConfig = {
   name: "AI Guardrails",
-  description: "Code with AI, without the bloat. Guardrails for vibe coders.",
+  description: "Guardrails for AI-assisted coding.",
   github: "https://github.com/pbhargesh82/ai-guradrails",
 };

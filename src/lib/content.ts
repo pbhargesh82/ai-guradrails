@@ -13,12 +13,6 @@ export interface ContentItem {
   content: string;
 }
 
-export interface TocItem {
-  id: string;
-  text: string;
-  level: number;
-}
-
 function readMarkdownFile(filePath: string): Omit<ContentItem, "slug"> {
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
@@ -80,20 +74,4 @@ export function getManualSection(slug: string): ContentItem | null {
   if (!fs.existsSync(filePath)) return null;
   const item = readMarkdownFile(filePath);
   return { slug, ...item };
-}
-
-export function extractToc(markdown: string): TocItem[] {
-  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
-  const items: TocItem[] = [];
-  let match;
-  while ((match = headingRegex.exec(markdown)) !== null) {
-    const level = match[1].length;
-    const text = match[2].replace(/[*_`]/g, "");
-    const id = text
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-");
-    items.push({ id, text, level });
-  }
-  return items;
 }

@@ -1,164 +1,113 @@
 @import "tailwindcss";
 
-@theme {
-  --color-bg: #0a0a0b;
-  --color-surface: #141416;
-  --color-surface-hover: #1c1c1f;
-  --color-border: #27272a;
-  --color-text: #fafafa;
-  --color-text-muted: #a1a1aa;
-  --color-accent: #22c55e;
-  --color-accent-dim: #16a34a;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "Fira Code", monospace;
-}
-
-html {
-  color-scheme: dark;
-}
-
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
+  background: #111;
+  color: #ddd;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
 }
 
 .prose {
-  max-width: 65ch;
-  line-height: 1.75;
+  max-width: 42rem;
 }
 
 .prose h1 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  letter-spacing: -0.025em;
+  margin: 0 0 1rem;
 }
 
 .prose h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
-  scroll-margin-top: 5rem;
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #333;
 }
 
 .prose h3 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  scroll-margin-top: 5rem;
+  margin: 1.5rem 0 0.5rem;
 }
 
-.prose p {
-  margin-bottom: 1rem;
-  color: var(--color-text-muted);
+.prose p,
+.prose li {
+  color: #aaa;
+  margin-bottom: 0.75rem;
 }
 
 .prose strong {
-  color: var(--color-text);
-  font-weight: 600;
+  color: #ddd;
 }
 
-.prose a {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.prose a:hover {
-  color: var(--color-accent-dim);
-}
-
-.prose ul, .prose ol {
-  margin-bottom: 1rem;
+.prose ul,
+.prose ol {
   padding-left: 1.5rem;
-  color: var(--color-text-muted);
-}
-
-.prose li {
-  margin-bottom: 0.25rem;
-}
-
-.prose li::marker {
-  color: var(--color-accent);
-}
-
-.prose blockquote {
-  border-left: 3px solid var(--color-accent);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-  color: var(--color-text-muted);
-  font-style: italic;
+  margin-bottom: 1rem;
 }
 
 .prose hr {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #333;
   margin: 2rem 0;
 }
 
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
   font-size: 0.875rem;
+  margin: 1rem 0;
+}
+
+.prose th,
+.prose td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #333;
 }
 
 .prose th {
-  text-align: left;
-  padding: 0.75rem 1rem;
-  border-bottom: 2px solid var(--color-border);
-  color: var(--color-text);
-  font-weight: 600;
+  color: #ddd;
 }
 
 .prose td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-muted);
+  color: #888;
 }
 
 .prose pre {
-  margin: 1.5rem 0;
-  border-radius: 0.5rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1rem;
   overflow-x: auto;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface) !important;
-}
-
-.prose pre code {
-  font-family: var(--font-mono);
+  margin: 1rem 0;
   font-size: 0.875rem;
-  line-height: 1.6;
 }
 
 .prose :not(pre) > code {
-  background: var(--color-surface);
-  padding: 0.15rem 0.4rem;
-  border-radius: 0.25rem;
-  font-family: var(--font-mono);
+  background: #1a1a1a;
+  padding: 0.1rem 0.3rem;
   font-size: 0.875em;
-  color: var(--color-accent);
-  border: 1px solid var(--color-border);
 }
 
-.prose img {
-  max-width: 100%;
-  border-radius: 0.5rem;
+.prose blockquote {
+  border-left: 2px solid #333;
+  padding-left: 1rem;
+  color: #888;
+  margin: 1rem 0;
 }
 
 [data-rehype-pretty-code-figure] pre {
   padding: 1rem;
-}
-
-[data-highlighted-line] {
-  background-color: rgba(34, 197, 94, 0.1);
-  border-left: 2px solid var(--color-accent);
-  padding-left: 0.5rem;
-  margin-left: -0.5rem;
 }

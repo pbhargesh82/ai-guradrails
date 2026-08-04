@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { MdxRenderer } from "@/components/MdxRenderer";
-import { getAllGuides, getGuide, extractToc } from "@/lib/content";
+import { getAllGuides, getGuide } from "@/lib/content";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -28,10 +28,8 @@ export default async function GuidePage({ params }: PageProps) {
   const guide = getGuide(agent);
   if (!guide) notFound();
 
-  const toc = extractToc(guide.content);
-
   return (
-    <Layout toc={toc}>
+    <Layout>
       <MdxRenderer source={guide.content} />
     </Layout>
   );

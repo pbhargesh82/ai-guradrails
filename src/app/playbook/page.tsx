@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { MdxRenderer } from "@/components/MdxRenderer";
-import { getPlaybook, extractToc } from "@/lib/content";
+import { getPlaybook } from "@/lib/content";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 
 export default function PlaybookPage() {
   const playbook = getPlaybook();
-  const toc = extractToc(playbook.content);
 
   return (
-    <Layout toc={toc}>
+    <Layout>
       <MdxRenderer source={playbook.content} />
     </Layout>
   );

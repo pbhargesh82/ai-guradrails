@@ -1,6 +1,5 @@
 import { Layout } from "@/components/Layout";
 import { MdxRenderer } from "@/components/MdxRenderer";
-import { extractToc } from "@/lib/content";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -17,10 +16,9 @@ export default function RoadmapPage() {
     "utf8"
   );
   const { content } = matter(raw);
-  const toc = extractToc(content);
 
   return (
-    <Layout toc={toc}>
+    <Layout>
       <MdxRenderer source={content} />
     </Layout>
   );
