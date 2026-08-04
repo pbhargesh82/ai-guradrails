@@ -14,9 +14,22 @@ This repo holds a three-layer system:
 2. **Local mechanical** — pre-commit, linter, CodeDiet
 3. **CI mechanical** — GitHub Actions, PR template
 
+## Website
+
+Browse the playbook, manual, and integration guides on the web (deploy to Netlify from this repo).
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static export → out/
+```
+
+**Pages:** Home · [Playbook](/playbook) · [Manual](/manual/01-the-problem) · [Guides](/guides/cursor) · [Roadmap](/roadmap)
+
 ## Start here
 
-Read the full playbook: **[anti-ai-bloat-guardrails-playbook.md](anti-ai-bloat-guardrails-playbook.md)**
+- **Web:** run `npm run dev` and open http://localhost:3000
+- **Markdown:** [anti-ai-bloat-guardrails-playbook.md](anti-ai-bloat-guardrails-playbook.md)
 
 ## Quick use
 
